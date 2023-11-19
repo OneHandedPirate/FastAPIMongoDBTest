@@ -1,0 +1,7 @@
+services:
+  db:
+    image: mongo
+    restart: always
+    container_name: mongodb
+    ports:
+      - "${DB_PORT}:27017"
