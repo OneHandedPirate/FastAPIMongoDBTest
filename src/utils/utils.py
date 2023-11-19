@@ -22,8 +22,7 @@ async def find_matching_template(validated_data: dict) -> str | None:
 
     templates = await collection.find({}, {'_id': False}).to_list(length=None)
     validated_data_len = len(validated_data)
-    suitable_templates = filter(lambda x: len(x) + 1 >= validated_data_len, templates)
-
+    suitable_templates = filter(lambda x: len(x) - 1 <= validated_data_len, templates)
     for template in suitable_templates:
         if all(item in validated_data.items() for item in template.items() if item[0] != "name"):
             return template["name"]
