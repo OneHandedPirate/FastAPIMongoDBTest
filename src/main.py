@@ -5,10 +5,14 @@ from src.utils.utils import get_field_type, find_matching_template
 from src.utils.validators import validate_form
 
 
-app = FastAPI()
+app = FastAPI(
+    title="Form Checker",
+    description="Simple Fast API app to check whether "
+                "form match to any template stored in the database",
+    )
 
 
-@app.post('/get_form')
+@app.post('/get_form', tags=["forms"])
 async def get_form(form_data: dict):
     if not validate_form(form_data):
         return JSONResponse(
