@@ -73,9 +73,9 @@ TEST_FORMS = [
 
 
 async def test_get_form_endpoint(data: list) -> None:
-    for form in data:
-        print(f"Request data: {form}")
-        async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient() as client:
+        for form in data:
+            print(f"Request data: {form}")
             res = await client.post(f'http://localhost:{APP_PORT}/get_form', json=form)
             _json = res.json()
             print(f"Response data: {_json}\n")
