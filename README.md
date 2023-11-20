@@ -111,13 +111,16 @@ email<br>
     ```
     FastAPIMongoDBTest/
     ├── src/
+    │   ├── __init__.py
     │   ├── database.py
     │   ├── main.py
     │   └── utils/
+    │       ├── __init__.py
     │       ├── db_fill.py
     │       ├── utils.py
     │       └── validators.py
     ├── tests/
+    │   ├── __init__.py
     │   └── test.py
     ├── .env
     ├── .env-example
@@ -127,6 +130,7 @@ email<br>
     ├── poetry.lock
     ├── pyproject.toml
     ├── README.md
+    ├── .gitignore 
     └── requirements.txt
     ```
     + `database.py` - подключение к MongoDB через Motor.
